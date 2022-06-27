@@ -1,0 +1,52 @@
+.navbarTitle {
+  display: flex;
+  border: 4px solid black;
+}
+
+.navbarTitle h1 {
+  color: royalblue;
+  background-color: burlywood;
+  margin-left: 2rem;
+
+}
+
+.navbarTitle ul {
+  display: flex;
+  justify-self: right;
+  margin-top: 1rem;
+  margin-left: 42rem;
+
+  border: 1p solid black;
+}
+
+.navbarTitle li {
+  border: 1px solid black;
+  list-style-type: none;
+  padding: 1rem 4rem;
+
+}
+
+.navbarTitle li:hover {
+  background-color: khaki;
+
+}
+
+.mainForm {
+  width: 100%;
+  padding: 2rem;
+  border: 2px solid black;
+  background-color: cornflowerblue;
+}
+
+.mainForm input {
+  display: flex;
+}
+
+.mainPage {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.mainPage .list {
+  margin-left: 10rem;
+}
