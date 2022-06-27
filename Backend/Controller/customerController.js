@@ -4,9 +4,9 @@ import mongoclient from "../db/db.js";
 const customerCollection = mongoclient.db('customer').collection('customer');
 
 //post
-const post = async ({ Fname, age, gender }) => {
+const post = async ({ Fname, age, gender, password }) => {
     try {
-        const data = { Fname, age, gender };
+        const data = { Fname, age, gender , password };
         await customerCollection.insertOne(data);
         return data;
     } catch (error) {
@@ -54,4 +54,18 @@ const getName = async (name) => {
     const data = await customerCollection.findOne({ Fname: name });
     return data;
 }
-export { post, getAll, getById, deleteById, getName, updateData };
+
+
+const login = async (data) => {
+    const user = await customerCollection.findOne({Fname:data.Fname});
+    console.log(user);
+    if(user.password == data.password){
+        return "Login succesfull";
+    }else{
+        return "Inavalid username or password";
+    }
+    
+}
+
+
+export { post, getAll, getById, deleteById, getName, updateData , login};
