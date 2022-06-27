@@ -1,6 +1,6 @@
 import Router, { } from '@koa/router';
 
-import { post, getAll, getById, deleteById, getName, updateData } from '../Controller/customerController.js';
+import { post, getAll, getById, deleteById, getName, updateData , login } from '../Controller/customerController.js';
 
 const postCustomerRoute = new Router({
     prefix: '/customer'
@@ -29,13 +29,18 @@ postCustomerRoute.delete('/delete/:id', async (ctx) => {
 
 postCustomerRoute.get('/getName', async (ctx) => {
     // console.log(ctx.request.body.name);
-    ctx.body = await getName(ctx.request.body.name)
+    ctx.body = await getName(ctx.request.body.Fname)
 })
 
 postCustomerRoute.put('/update/:id', async (ctx) => {
     const id = ctx.params.id;
     ctx.body = await updateData(id, ctx.request.body);
 
+})
+
+postCustomerRoute.post('/login', async (ctx) =>{
+    const data = ctx.request.body
+    ctx.body = await login(data);
 })
 
 export default postCustomerRoute;
